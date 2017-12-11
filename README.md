@@ -1,6 +1,8 @@
 # ve-touch中文文档
 地址：github.com/plingply/ve-touch.git
 
+测试地址：http://www.callback.ren/ve/touch
+
 v-touch:tap 单击
 v-touch:press 长按
 v-touch:move 移动

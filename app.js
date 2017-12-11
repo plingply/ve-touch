@@ -33,5 +33,6 @@ app.get('/create_qrcode', function(req, res, next) {
 
 app.listen(host, () => {
     console.log('the server start at ' + host)
-        // open(ipv4 +":"+ host)
+    console.log(ipv4 + ":" + host)
+        // open(ipv4 + ":" + host)
 })
