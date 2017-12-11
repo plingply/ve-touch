@@ -1,4 +1,5 @@
 # ve-touch中文文档
+地址：github.com/plingply/ve-touch.git
 
 v-touch:tap 单击
 v-touch:press 长按
