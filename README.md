@@ -9,7 +9,7 @@ v-touch:movetop 向上边滑动
 v-touch:movebottom 向下滑动
 v-touch:dbtap 双击
 v-touch:scale//缩放，这个方法后面可不用跟函数
-v-touch:scale={sc:1}//参数sc是限制的缩放比例
+v-touch:scale={sc:1,ismove:true,isScale:true}//参数sc是限制的缩放比例，不传默认为1 ismove是否可以移动 isScale是否可以缩放
 
 修饰符
 .stop 阻止事件冒泡

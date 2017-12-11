@@ -267,7 +267,9 @@ veTouch.install = function(vue, options) {
                 if (binding.arg == "scale") {
                     var option = {}
                     option.sc = (binding.value && binding.value.sc) ? binding.value.sc : 1;
-                    if (touches_2) { //缩放
+                    var isscale = binding.value.isScale === undefined ? true : binding.value.isScale
+                    var ismover = binding.value.ismove === undefined ? true : binding.value.ismove
+                    if (touches_2 && isscale) { //缩放
                         var x1 = touches.pageX;
                         var y1 = touches.pageY;
                         var x2 = touches_2.pageX;
@@ -288,7 +290,7 @@ veTouch.install = function(vue, options) {
                         tapObj.scaleval = 'scale3d(' + tapObj.c + ',' + tapObj.c + ',1)'; //通过s
                         el.style.transform = tapObj.translate + " " + tapObj.scaleval;
                         tapObj.line = line;
-                    } else { //移动
+                    } else if (!touches_2 && ismover) { //移动
                         if (!tapObj.scanmove) return
                         var x1 = touches.pageX;
                         var y1 = touches.pageY;
