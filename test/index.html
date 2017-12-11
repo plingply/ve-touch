@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ve-touch test</title>
+    <script src="/test/vue.min.js"></script>
+    <style>
+        #app {
+            width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        #app div {
+            width: 300px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            margin: 0 auto;
+            background-color: red;
+            margin-bottom: 10px;
+        }
+        
+        #app div.scale {
+            background-color: green;
+        }
+        
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h2>手机端访问二维码</h2>
+        <img src="/create_qrcode" alt="">
+        <div v-touch:tap="tap">点击</div>
+        <div v-touch:dbtap="dbtap">双击</div>
+        <div v-touch:press="{methods:press,arg:{a:1}}">长按</div>
+        <div v-touch:move="move">移动</div>
+        <div v-touch:moveleft="moveleft">左移</div>
+        <div v-touch:moveright="moveright">右移</div>
+        <div v-touch:movetop="movetop">上移</div>
+        <div v-touch:movebottom="movebottom">下移</div>
+        <div v-touch:scale="{sc:1}" class="scale">缩放</div>
+    </div>
+    <script src="/dist/index.js"></script>
+    <script>
+        Vue.use(veTouch)
+        new Vue({
+            el: "#app",
+            data: {
+                d: 123
+            },
+            methods: {
+                tap: function() {
+                    alert('tap')
+                },
+                dbtap: function() {
+                    alert('dbtap')
+                },
+                move: function() {
+                    alert('move')
+                },
+                moveleft: function() {
+                    alert('moveleft')
+                },
+                movetop: function() {
+                    alert('movetop')
+                },
+                movebottom: function() {
+                    alert('movebottom')
+                },
+                moveright: function() {
+                    alert('moveright')
+                },
+                press: function(data) {
+                    alert('press')
+                },
+                scale() {
+                    console.log('scale')
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
