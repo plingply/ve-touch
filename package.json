@@ -1,15 +1,19 @@
 {
     "name": "ve-touch",
-    "version": "3.0.2",
-    "description": "",
+    "version": "3.0.3",
+    "description": "vue vue-touch ve-touch touch",
     "main": "dist/index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "rollup --config rollup.config.prod.js --watch",
         "start": "node app"
     },
-    "author": "",
+    "author": "plingply",
     "license": "ISC",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/plingply/ve-touch.git"
+    },
     "devDependencies": {
         "autoprefixer": "^7.1.6",
         "express": "^4.16.2",
