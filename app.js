@@ -9,6 +9,7 @@ var ifaces = os.networkInterfaces();
 
 for (var dev in ifaces) {
     ifaces[dev].forEach(function(details, index) {
+        console.log(details)
         if (details.family == 'IPv4') {
             ipv4 = details.address;
         }
@@ -22,7 +23,7 @@ app.get("/", (req, res, next) => {
 });
 app.get('/create_qrcode', function(req, res, next) {
     try {
-        var img = qr.image(ipv4 + ':' + host, { size: 10 });
+        var img = qr.image('http://www.callback.ren/ve/touch', { size: 10 });
         res.writeHead(200, { 'Content-Type': 'image/png' });
         img.pipe(res);
     } catch (e) {
