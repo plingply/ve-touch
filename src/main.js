@@ -1,27 +1,24 @@
 var veTouch = {}
+veTouch.touchArr = ["move", "moveleft", "movetop", "moveright", "movebottom", "tap", "press", "dbtap", "scale"];
 veTouch.install = function(vue, options) {
     //添加全局指令111
     vue.directive('touch', {
         inserted: function(el, binding) {
 
-            el.touchArr = ["move", "moveleft", "movetop", "moveright", "movebottom", "tap", "press", "dbtap", "scale"];
-
             el.fn = function(el, binding) {
-                for (var i = 0; i < el.touchArr.length; i++) {
-                    if (binding.arg == el.touchArr[i]) {
-                        if (typeof(binding.value) == 'function') {
-                            el[el.touchArr[i]] = binding.value;
-                        } else if (typeof(binding.value) == 'object') {
-                            el[el.touchArr[i]] = function() {
-                                return binding.value.methods(binding.value.arg)
-                            };
-                        } else {
-                            el[el.touchArr[i]] = function() {
-                                console.error("参数错误,请不要用类似fun(a,b)这样的格式作为参数，正确方式为fun或者{methods:fun,arg:{a:1,b:2}}")
-                                return binding.value
-                            };
-                        }
-                        break;
+                let index = veTouch.touchArr.indexOf(binding.arg)
+                if (index >= 0) {
+                    if (typeof(binding.value) == 'function') {
+                        el[veTouch.touchArr[index]] = binding.value;
+                    } else if (typeof(binding.value) == 'object') {
+                        el[veTouch.touchArr[index]] = function() {
+                            return binding.value.methods(binding.value.arg)
+                        };
+                    } else {
+                        el[veTouch.touchArr[index]] = function() {
+                            console.error("参数错误,请不要用类似fun(a,b)这样的格式作为参数，正确方式为fun或者{methods:fun,arg:{a:1,b:2}}")
+                            return binding.value
+                        };
                     }
                 }
             }
@@ -95,9 +92,6 @@ veTouch.install = function(vue, options) {
                 }
                 //缩放初始化
             if (binding.arg == "scale") {
-
-                // self.scale = "scale(" + option.c + ")";
-                // self.c = option.c;
                 el.style.transform = tapObj.translate + " " + tapObj.scaleval;
             }
 
