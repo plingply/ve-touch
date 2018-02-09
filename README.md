@@ -22,3 +22,5 @@ v-touch:scale={sc:1,ismove:true,isScale:true}//参数sc是限制的缩放比例�
 v-touch:tap="fun"
 v-touch:tap="{methods:fun,arg:{a:12,b:23}}"
 只有这两种写法 其他写法暂时不支持！
+
+参数说明：默认第一个参数为 event 第二个参数才是自己传入的参数

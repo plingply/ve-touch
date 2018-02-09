@@ -11,8 +11,8 @@ veTouch.install = function(vue, options) {
                     if (typeof(binding.value) == 'function') {
                         el[veTouch.touchArr[index]] = binding.value;
                     } else if (typeof(binding.value) == 'object') {
-                        el[veTouch.touchArr[index]] = function() {
-                            return binding.value.methods(binding.value.arg)
+                        el[veTouch.touchArr[index]] = function(e) {
+                            return binding.value.methods(e, binding.value.arg)
                         };
                     } else {
                         el[veTouch.touchArr[index]] = function() {
@@ -118,7 +118,7 @@ veTouch.install = function(vue, options) {
                     e.preventDefault();
                     e.stopPropagation();
                     tapObj.Interval = setTimeout(function() {
-                        el.press();
+                        el.press(e);
                         tapObj.count = 0;
                     }, 500)
                 }
@@ -127,7 +127,7 @@ veTouch.install = function(vue, options) {
                     if (binding.modifiers.stop) e.stopPropagation();
                     tapObj.Dtap = 0;
                     clearTimeout(tapObj.timeout);
-                    el.dbtap();
+                    el.dbtap(e);
                 }
 
                 if (binding.arg == 'scale') {
@@ -167,7 +167,7 @@ veTouch.install = function(vue, options) {
                     if (binding.modifiers.prevent) e.preventDefault();
                     if (binding.modifiers.stop) e.stopPropagation();
                     if (tapObj.isTap()) {
-                        el.tap();
+                        el.tap(e);
                     }
                 }
 
@@ -206,7 +206,7 @@ veTouch.install = function(vue, options) {
                 if (binding.arg == "move") {
                     if (binding.modifiers.prevent) e.preventDefault();
                     if (binding.modifiers.stop) e.stopPropagation();
-                    el.move();
+                    el.move(e);
                 }
 
 
@@ -219,7 +219,7 @@ veTouch.install = function(vue, options) {
 
                     if (tapObj.isMove() && tapObj.moveLeft()) {
                         tapObj.canMove = false;
-                        el.moveleft();
+                        el.moveleft(e);
                     }
                 }
 
@@ -230,7 +230,7 @@ veTouch.install = function(vue, options) {
                     }
                     if (tapObj.isMove() && tapObj.moveRight()) {
                         tapObj.canMove = false;
-                        el.moveright();
+                        el.moveright(e);
                     }
                 }
 
@@ -242,7 +242,7 @@ veTouch.install = function(vue, options) {
 
                     if (tapObj.isMove() && tapObj.moveTop()) {
                         tapObj.canMove = false;
-                        el.movetop();
+                        el.movetop(e);
                     }
                 }
 
@@ -254,7 +254,7 @@ veTouch.install = function(vue, options) {
 
                     if (tapObj.isMove() && tapObj.moveBottom()) {
                         tapObj.canMove = false;
-                        el.movebottom();
+                        el.movebottom(e);
                     }
                 }
 

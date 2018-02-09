@@ -58,28 +58,37 @@
                 d: 123
             },
             methods: {
-                tap: function() {
+                tap: function(e) {
+                    console.log(e)
                     alert('tap')
                 },
-                dbtap: function() {
+                dbtap: function(e) {
+                    console.log(e)
                     alert('dbtap')
                 },
-                move: function() {
+                move: function(e) {
+                    console.log(e)
                     alert('move')
                 },
-                moveleft: function() {
+                moveleft: function(e) {
+                    console.log(e)
                     alert('moveleft')
                 },
-                movetop: function() {
+                movetop: function(e) {
+                    console.log(e)
                     alert('movetop')
                 },
-                movebottom: function() {
+                movebottom: function(e) {
+                    console.log(e)
                     alert('movebottom')
                 },
-                moveright: function() {
+                moveright: function(e) {
+                    console.log(e)
                     alert('moveright')
                 },
-                press: function(data) {
+                press: function(e, data) {
+                    console.log(e)
+                    console.log(data)
                     alert('press')
                 },
                 scale() {

@@ -1,13 +1,13 @@
 {
     "name": "ve-touch",
-    "version": "3.0.8",
+    "version": "3.0.9",
     "description": "vue vue-touch ve-touch touch",
     "main": "dist/index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "rollup --config rollup.config.prod.js --watch",
         "start": "node app",
-        "push": "npm publish && git add --all && git commit -a -m 'x' && git push origin master"
+        "push": "npm publish && git add --all && git commit -a -m '修复了回调函数中获取event问题' && git push origin master"
     },
     "author": "plingply",
     "license": "ISC",
