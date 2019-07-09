@@ -103,6 +103,9 @@ veTouch.install = function(vue, options) {
                 tapObj.pageX = touches.pageX;
                 tapObj.pageY = touches.pageY;
                 tapObj.time = +new Date();
+                if(tapObj.count >= 1){
+                    tapObj.count = 0
+                }
                 tapObj.count++;
                 tapObj.Dtap = tapObj.count > 1 ? 0 : tapObj.Dtap;
                 tapObj.Dtap++;

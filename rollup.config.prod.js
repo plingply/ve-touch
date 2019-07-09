@@ -26,6 +26,7 @@ import { version } from './package.json';
 export default {
     input: 'src/main.js',
     output: {
+        name:"veTouch",
         file: 'dist/index.js',
         format: 'umd'
     },
