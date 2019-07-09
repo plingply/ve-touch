@@ -96,8 +96,6 @@ veTouch.install = function(vue, options) {
             }
 
             function touchstart(e) {
-                e.preventDefault();
-                e.stopPropagation();
                 var touches = e.touches[0]; //获取第一个触点
                 var touches_2 = e.touches[1]; //获取第二个触点
                 tapObj.pageX = touches.pageX;

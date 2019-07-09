@@ -1,6 +1,6 @@
 {
   "name": "ve-touch",
-  "version": "3.1.3",
+  "version": "3.1.4",
   "description": "vue vue-touch ve-touch touch",
   "main": "dist/index.js",
   "scripts": {

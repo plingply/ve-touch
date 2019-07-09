@@ -1,6 +1,6 @@
 /**
- * ve-touch 3.1.3
- * created at Tue Jul 09 2019 11:30:07 GMT+0800 (GMT+08:00)
+ * ve-touch 3.1.4
+ * created at Tue Jul 09 2019 15:29:37 GMT+0800 (GMT+08:00)
  */
 
 (function (global, factory) {
@@ -134,8 +134,6 @@
                 }
 
                 function touchstart(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
                     var touches = e.touches[0]; //获取第一个触点
                     var touches_2 = e.touches[1]; //获取第二个触点
                     tapObj.pageX = touches.pageX;
